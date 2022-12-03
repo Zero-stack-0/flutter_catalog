@@ -7,7 +7,11 @@ class Homepage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Catalog App")),
+      appBar: AppBar(
+          title: Text(
+        "Catalog App",
+        style: TextStyle(fontWeight: FontWeight.bold),
+      )),
       body: Center(),
       drawer: Drawer(
         backgroundColor: Colors.white,
