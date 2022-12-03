@@ -1,7 +1,9 @@
 // ignore_for_file: prefer_const_constructors
 import 'package:flutter/material.dart';
+import 'package:flutter_demo/pages/about_us.dart';
 import 'package:flutter_demo/pages/home_page.dart';
 import 'package:flutter_demo/pages/login_page.dart';
+import 'package:flutter_demo/utils/routes.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() {
@@ -18,11 +20,12 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
           primarySwatch: Colors.purple,
           fontFamily: GoogleFonts.lato().fontFamily),
-      initialRoute: "/Loginpage",
+      initialRoute: "/AboutUs",
       routes: {
-        "/": (context) => Loginpage(),
-        "/Login": (context) => Loginpage(),
-        "/Homepage": (context) => Homepage()
+        "/": (context) => AboutUs(),
+        MyRoutes.LoginRoute: (context) => Loginpage(),
+        MyRoutes.HomeRoute: (context) => Homepage(),
+        MyRoutes.AboutUs: ((context) => AboutUs())
       },
     );
   }
