@@ -58,6 +58,7 @@ class _LoginpageState extends State<Loginpage> {
                               if (value!.isEmpty) {
                                 return "Username should not be empty";
                               }
+                              return null;
                             }),
                           ),
                           TextFormField(
@@ -70,10 +71,10 @@ class _LoginpageState extends State<Loginpage> {
                               if (value!.isEmpty) {
                                 return "password cannot be empty";
                               }
-
                               if (value.length < 6) {
                                 return "password should be greater than 6";
                               }
+                              return null;
                             },
                           ),
                           SizedBox(
@@ -82,10 +83,6 @@ class _LoginpageState extends State<Loginpage> {
                           InkWell(
                             splashColor: Color.fromARGB(255, 177, 138, 183),
                             onTap: () async {
-                              setState(() {
-                                isButtonClicked = true;
-                              });
-
                               if (_formKey.currentState!.validate()) {
                                 await Future.delayed(Duration(seconds: 1));
                                 // ignore: use_build_context_synchronously
@@ -94,7 +91,11 @@ class _LoginpageState extends State<Loginpage> {
                                 setState(() {
                                   isButtonClicked = false;
                                 });
+                                setState(() {
+                                  isButtonClicked = true;
+                                });
                               }
+                              // ignore: avoid_returning_null_for_void
                               return null;
                             },
                             child: AnimatedContainer(
